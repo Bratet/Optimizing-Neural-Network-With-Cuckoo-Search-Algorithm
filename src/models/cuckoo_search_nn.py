@@ -51,6 +51,9 @@ def cuckoo_search(X, y, n_pop, n_iterations, pa, n_inputs, n_hidden, n_outputs, 
     best_solution = population[min_idx]
     best_fitness = fitnesses[min_idx]
 
+    # Create a list to store the fitness at each iteration
+    loss_history = []
+
     for _ in range(n_iterations):
         # Generate a cuckoo solution
         cuckoo_idx = np.random.randint(n_pop)
@@ -83,4 +86,7 @@ def cuckoo_search(X, y, n_pop, n_iterations, pa, n_inputs, n_hidden, n_outputs, 
             best_solution = current_best_solution
             best_fitness = current_best_fitness
 
-    return best_solution
+        # Append the current best fitness to the history
+        loss_history.append(best_fitness)
+
+    return best_solution, loss_history
