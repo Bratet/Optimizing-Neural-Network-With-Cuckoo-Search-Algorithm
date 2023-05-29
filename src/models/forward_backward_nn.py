@@ -59,7 +59,7 @@ def train_nn(X_train, y_train, n_hidden=10, learning_rate=0.01, epochs=500):
 
 # Function to make predictions given a trained model (weights and biases) and input data
 def predict_nn(X, W1, b1, W2, b2):
-    # Compute output of each layer (similar to the forward propagation step during training)
+    # Compute output of each layer 
     hidden_layer = sigmoid(np.dot(X, W1) + b1)
     output_layer = sigmoid(np.dot(hidden_layer, W2) + b2)
     
